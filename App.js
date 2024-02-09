@@ -1,11 +1,12 @@
-import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
-import Route from './Route'
+import * as React from "react";
+import { View, StyleSheet, StatusBar } from "react-native";
+import color from "./src/utils/color";
+import Route from "./Route";
 export default function App() {
   return (
     <View style={styles.container}>
-     <Route />
+      <StatusBar backgroundColor={color.blue} />
+      <Route />
     </View>
   );
 }
@@ -13,5 +14,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // marginTop: Constants.statusBarHeight,
   },
 });

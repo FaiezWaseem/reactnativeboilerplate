@@ -1,15 +1,10 @@
 {
   "expo": {
-    "name": "reactnativeboilerplate",
+    "name": "ecoaching",
     "slug": "snack-8e62e55b-e98f-43dc-bf8d-01a9dd25f274",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "icon": "./assets/AppIcons/playstore.png",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -21,12 +16,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/AppIcons/playstore.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.tec.ecoaching"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5e7c57ea-c6a1-4775-9843-6d7430bf9734"
+      }
     }
   }
 }
