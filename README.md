@@ -1,10 +1,9 @@
 # Expo React Native BoilerPlate
 
- - Expo SDK 54
+ - Expo SDK 57
  - TypeScript
- - react-native-paper (via rn-faiez-components)
- - React 19.1.0
- - React Native 0.81.5
+ - React 19.2.3
+ - React Native 0.86.2
  - @expo/vector-icons 15.x
  - React Navigation 7
 

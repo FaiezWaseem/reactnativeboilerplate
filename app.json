@@ -5,7 +5,6 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/AppIcons/playstore.png",
-    "newArchEnabled": true,
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -20,8 +19,7 @@
         "foregroundImage": "./assets/AppIcons/playstore.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.tec.ecoaching",
-      "edgeToEdgeEnabled": true
+      "package": "com.tec.ecoaching"
     },
     "web": {
       "favicon": "./assets/favicon.png"
