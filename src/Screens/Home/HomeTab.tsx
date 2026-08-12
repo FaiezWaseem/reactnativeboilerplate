@@ -1,24 +1,26 @@
 import * as React from "react";
 import { Box, Text, width, Center, PBox } from "rn-faiez-components";
-import { ScrollView, Image, StatusBar } from "react-native";
+import { ScrollView, Image, StatusBar, ImageSourcePropType } from "react-native";
 import color from "../../utils/color";
-import { FontAwesome5 } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
-
-import { Feather } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { Entypo, Ionicons, Feather } from "@expo/vector-icons";
 import Input from "../../components/Input";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import type { RootStackParamList } from "../../types/navigation";
 
+type HomeTabScreenProps = {
+  extraData: NativeStackNavigationProp<RootStackParamList, "HomeScreen">;
+};
 
-export default function HomeTabScreen({ extraData }) {
+export default function HomeTabScreen({ extraData }: HomeTabScreenProps) {
   return (
     <Box flex={1} bg={color.white}>
       <StatusBar backgroundColor={color.blue} />
       <ScrollView>
         <Center mb={5}>
           <Box bg={color.blue} p={12} mb={20} w={"100%"}>
-            <Box flexDirection={'row'}>
-              <Box w={'75%'}>
+            <Box flexDirection={"row"}>
+              <Box w={"75%"}>
                 <Text color={color.white} fontSize={12}>
                   Welcome back
                   <Entypo name="thunder-cloud" size={16} color={color.white} />
@@ -26,45 +28,46 @@ export default function HomeTabScreen({ extraData }) {
                 <Text fontWeight={"bold"} color={color.white} fontSize={16}>
                   Ahmed jamal
                 </Text>
-
               </Box>
-              <Box w={'25%'} flexDirection={'row'} >
+              <Box w={"25%"} flexDirection={"row"}>
                 <PBox
                   bg={"rgba(255,255,255,0.5)"}
                   rounded={20}
                   p={6}
                   w={40}
                   h={40}
-                  alignItems={'center'}
-                  justifyContent={'center'}
+                  alignItems={"center"}
+                  justifyContent={"center"}
                   style={{
                     borderWidth: 1,
                     borderColor: color.white,
                   }}
                 >
-                  <Ionicons name="notifications-outline" size={24} color={color.white} />
-
+                  <Ionicons
+                    name="notifications-outline"
+                    size={24}
+                    color={color.white}
+                  />
                 </PBox>
                 <PBox
                   bg={"rgba(255,255,255,0.5)"}
                   rounded={20}
-
                   ml={4}
                   w={40}
                   h={40}
-                  alignItems={'center'}
-                  justifyContent={'center'}
+                  alignItems={"center"}
+                  justifyContent={"center"}
                 >
                   <Image
-
-                    source={{ uri: 'https://randomuser.me/api/portraits/men/81.jpg' }}
+                    source={{
+                      uri: "https://randomuser.me/api/portraits/men/81.jpg",
+                    }}
                     style={{
-                      width: '100%',
-                      height: '100%',
-                      borderRadius: 20
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: 20,
                     }}
                   />
-
                 </PBox>
               </Box>
             </Box>
@@ -82,9 +85,8 @@ export default function HomeTabScreen({ extraData }) {
                   borderColor: color.white,
                 }}
               >
-                <Box p={6} >
+                <Box p={6}>
                   <Feather name="search" size={24} color="white" />
-
                 </Box>
                 <Input
                   ml={18}
@@ -94,7 +96,6 @@ export default function HomeTabScreen({ extraData }) {
                 />
               </Box>
             </Center>
-
           </Box>
         </Center>
 
@@ -110,6 +111,7 @@ export default function HomeTabScreen({ extraData }) {
         >
           {[1, 2, 3, 4].map((i) => (
             <Course
+              key={i}
               navigation={extraData}
               title={i % 2 === 0 ? "ENGLISH" : "MATH"}
               icon={getIcons(i % 2 === 0 ? "ENGLISH" : "MATH")}
@@ -131,21 +133,26 @@ export default function HomeTabScreen({ extraData }) {
             <Text color={color.white}>6</Text>
           </Box>
         </Box>
-        <Assignment />
-        <Assignment />
-        <Assignment />
-        <Assignment />
-        <Assignment />
-        <Assignment />
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <Assignment key={i} />
+        ))}
       </ScrollView>
     </Box>
   );
 }
 
-const Course = ({ navigation, icon, title }) => {
+function Course({
+  navigation,
+  icon,
+  title,
+}: {
+  navigation: HomeTabScreenProps["extraData"];
+  icon: ImageSourcePropType;
+  title: string;
+}) {
   return (
     <PBox
-      onPress={() => navigation.navigate("CourseView")}
+      onPress={() => navigation.navigate("CourseScreen", { course: { id: 0, title } })}
       justifyContent={"center"}
       alignItems={"center"}
       rounded={6}
@@ -159,17 +166,26 @@ const Course = ({ navigation, icon, title }) => {
     >
       <Image source={icon} style={{ width: 50, height: 50 }} />
       <Text mt={4} mb={4} fontWeight={"bold"}>
-        {title ? title : "English"}
+        {title || "English"}
       </Text>
     </PBox>
   );
-};
+}
 
-const Assignment = ({ navigation }) => {
+function Assignment() {
   return (
-    <Box p={6} e={2} m={8} bg={color.white} rounded={3} flexDirection={'row'} justifyContent={'center'} alignItems={'center'} >
+    <Box
+      p={6}
+      e={2}
+      m={8}
+      bg={color.white}
+      rounded={3}
+      flexDirection={"row"}
+      justifyContent={"center"}
+      alignItems={"center"}
+    >
       <FontAwesome5 name="book-open" size={24} color={color.dark} />
-      <Box ml={10} w={'90%'} >
+      <Box ml={10} w={"90%"}>
         <Box flexDirection={"row"}>
           <Text color={color.blue} fontSize={12} fontWeight={"bold"}>
             English
@@ -194,21 +210,17 @@ const Assignment = ({ navigation }) => {
           </Box>
         </Box>
       </Box>
-
     </Box>
   );
-};
+}
 
-const getIcons = (icon) => {
+function getIcons(icon: string): ImageSourcePropType {
   switch (icon) {
     case "ENGLISH":
       return require("../../../assets/eng.png");
-      break;
     case "MATH":
       return require("../../../assets/math-book.png");
-      break;
-
     default:
       return require("../../../assets/eng.png");
   }
-};
+}

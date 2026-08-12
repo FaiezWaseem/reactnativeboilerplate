@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/AppIcons/playstore.png",
+    "newArchEnabled": true,
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -19,7 +20,8 @@
         "foregroundImage": "./assets/AppIcons/playstore.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.tec.ecoaching"
+      "package": "com.tec.ecoaching",
+      "edgeToEdgeEnabled": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -28,6 +30,9 @@
       "eas": {
         "projectId": "5e7c57ea-c6a1-4775-9843-6d7430bf9734"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

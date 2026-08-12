@@ -2,7 +2,11 @@ import * as React from "react";
 import { Box, Text, Center, Button } from "rn-faiez-components";
 import color from "../../utils/color";
 import Input from "../../components/Input";
-export default function LoginScreen({ navigation }) {
+import type { RootStackScreenProps } from "../../types/navigation";
+
+export default function LoginScreen({
+  navigation,
+}: RootStackScreenProps<"LoginScreen">) {
   return (
     <Center flex={1} bg={color.white}>
       <Box p={6} w={"80%"} mb={20}>
@@ -21,7 +25,6 @@ export default function LoginScreen({ navigation }) {
             padding: 8,
             borderWidth: 1,
             borderColor: color.blue,
-            background: "#eee",
           }}
         />
       </Box>
@@ -51,7 +54,7 @@ export default function LoginScreen({ navigation }) {
             textAlign: "center",
           }}
           color={"white"}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("HomeScreen")}
         >
           Login
         </Button>

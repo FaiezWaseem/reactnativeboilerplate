@@ -5,16 +5,15 @@ import HomeScreen from "./src/Screens/Home/index";
 import DetailScreen from "./src/Screens/DetailScreen";
 import LoginScreen from "./src/Screens/Login/LoginScreen";
 import CourseViewScreen from "./src/Screens/Courses/CourseView";
-import TopicDetailScreen from './src/Screens/TopicDetail/TopicScreen'
-import SplashScreen from './src/Screens/Splash/SplashScreen'
-import BoardScreen from './src/Screens/Board/BoardScreen'
-import ClassesScreen from './src/Screens/Classes/ClassesScreen'
+import TopicDetailScreen from "./src/Screens/TopicDetail/TopicScreen";
+import SplashScreen from "./src/Screens/Splash/SplashScreen";
+import BoardScreen from "./src/Screens/Board/BoardScreen";
+import ClassesScreen from "./src/Screens/Classes/ClassesScreen";
 import PdfViewerscreen from "./src/Screens/PdfViewer/PdfViewer";
-
-
 import Screens from "./src/utils/Screens";
+import type { RootStackParamList } from "./src/types/navigation";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function Route() {
   return (
